@@ -5,7 +5,7 @@ CREATE TABLE Customer (
   PRIMARY KEY (customerID)
 );
 
-INSERT INTO Customer VALUES ('1', 'ELizabeth'), ('2', 'Alexander'), ('3', 'Emira'), ('4', 'LC'), ('5', 'Armand'), ('6', 'Elizabeth');
+INSERT INTO Customer VALUES ('1', 'Elizabeth'), ('2', 'Alexander'), ('3', 'Emira'), ('4', 'LC'), ('5', 'Armand'), ('6', 'Elizabeth');
 
 DROP TABLE IF EXISTS Sale;
 CREATE TABLE Sale (

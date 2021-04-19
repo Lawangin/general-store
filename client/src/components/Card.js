@@ -1,18 +1,7 @@
 import React from 'react'
 import { Box, Badge, Text, Image } from '@chakra-ui/react'
 
-const Card = (props) => {
-  const property = {
-    imageUrl: 'https://bit.ly/2Z4KKcF',
-    imageAlt: 'Rear view of modern home with pool',
-    beds: 3,
-    baths: 2,
-    title: 'Modern home in city center in the heart of historic Los Angeles',
-    formattedPrice: '$1,900.00',
-    reviewCount: 34,
-    rating: 4
-  }
-
+const Card = ({ content }) => {
   return (
     <Box
       borderWidth='1px'
@@ -21,9 +10,13 @@ const Card = (props) => {
       display='flex'
       flexDirection={['column', 'row', 'row']}
       boxShadow='base'
-      maxW={1200}
     >
-      <Image src={property.imageUrl} alt={property.imageAlt} maxH={'50vh'} />
+      <Image
+        src={'/jar-image.jpg'}
+        alt='image of a jar with flowers'
+        maxH={'50vh'}
+        objectFit='contain'
+      />
 
       <Box p='6' w='100%'>
         <Box d='flex' alignItems='baseline'>
@@ -34,15 +27,16 @@ const Card = (props) => {
 
         <Box mt='1' fontWeight='bold'>
           <Text fontSize='2rem' align='left'>
-            {property.title}
+            {content ? content.map((p) => p.itemname) : null} item is our most
+            popular item recently!
           </Text>
         </Box>
 
         <Box>
-          {property.formattedPrice}
-          <Box as='span' color='gray.600' fontSize='sm'>
-            / wk
-          </Box>
+          <Text fontSize='1rem' align='left'>
+            {content ? content.map((p) => p.quantity) : null} have been sold
+            already
+          </Text>
         </Box>
       </Box>
     </Box>

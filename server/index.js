@@ -67,6 +67,19 @@ app.get('/largest-item-count', async (req, res) => {
   }
 })
 
+app.get('/get-customers', async (req, res) => {
+  try {
+    const customers = await pool.query(`SELECT DISTINCT customerName, Customer.customerID, SUM(Sale.total) AS totalSpent
+    FROM Customer, Sale
+    WHERE Customer.customerID = Sale.customerId
+    GROUP BY Customer.customerID, customerName`)
+
+    res.json(customers.rows)
+  } catch (err) {
+    console.log(err.message)
+  }
+})
+
 app.listen(4000, () => {
   console.log('server has started on port 4000')
 })

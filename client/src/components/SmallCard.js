@@ -1,18 +1,7 @@
 import React from 'react'
-import { Box, Badge, Text, Image } from '@chakra-ui/react'
+import { Box, Text, Image } from '@chakra-ui/react'
 
-const SmallCard = (props) => {
-  const property = {
-    imageUrl: 'https://bit.ly/2Z4KKcF',
-    imageAlt: 'Rear view of modern home with pool',
-    beds: 3,
-    baths: 2,
-    title: 'Modern home in city center in the heart of historic Los Angeles',
-    formattedPrice: '$1,900.00',
-    reviewCount: 34,
-    rating: 4
-  }
-
+const SmallCard = ({ names, spent, type }) => {
   return (
     <Box
       borderWidth='1px'
@@ -23,26 +12,33 @@ const SmallCard = (props) => {
       boxShadow='base'
       maxW={600}
     >
-      <Image src={property.imageUrl} alt={property.imageAlt} maxH={'50vh'} />
+      <Image
+        src={spent ? '/happy-customer.jpg' : '/repeat-customer.jpg'}
+        alt={
+          spent
+            ? 'Lady with a lot of shopping bags'
+            : 'Happy gentleman sitting at a coffee bar'
+        }
+        maxH={'50vh'}
+      />
 
       <Box p='6' w='100%'>
-        <Box d='flex' alignItems='baseline'>
-          <Badge borderRadius='full' px='2' colorScheme='teal'>
-            New
-          </Badge>
-        </Box>
-
         <Box mt='1' fontWeight='bold'>
+          <Text fontSize='1.5rem' align='left'>
+            {type === 'freqCustomer'
+              ? 'We would like to recognize our most loyal customers:'
+              : null}
+            {type === 'spender' ? <p>Shout out to our big spenders!</p> : null}
+          </Text>
           <Text fontSize='2rem' align='left'>
-            {property.title}
+            {names ? names.map((n) => <p key={n}>{n}</p>) : null}
           </Text>
         </Box>
 
-        <Box>
-          {property.formattedPrice}
-          <Box as='span' color='gray.600' fontSize='sm'>
-            / wk
-          </Box>
+        <Box align='left'>
+          {spent ? (
+            <span>These customers have spent a total of ${spent}</span>
+          ) : null}
         </Box>
       </Box>
     </Box>

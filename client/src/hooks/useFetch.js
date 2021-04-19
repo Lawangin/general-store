@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 
 const useFetch = (url, options) => {
-  const [response, setResponse] = React.useState(null)
-  const [error, setError] = React.useState(null)
-  const [isLoading, setIsLoading] = React.useState(false)
-  React.useEffect(() => {
+  const [response, setResponse] = useState(null)
+  const [error, setError] = useState(null)
+  const [isLoading, setIsLoading] = useState(false)
+  useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true)
       try {
