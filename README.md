@@ -2,10 +2,6 @@
 
 This project is to show case an App given a list of receipts to create an SQL database with a React UI.
 
-## Demo
-
-[YouTube Demo](https://www.youtube.com/watch?v=wYb1GKArNuw)
-
 ## Prerequisites
 
 Docker\

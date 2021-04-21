@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const Header = () => {
   return (
     <>
-      <Heading align='center'>Strider General Store</Heading>
+      <Heading align='center'>General Store</Heading>
       <Box align='center' d='flex' justifyContent='center'>
         <Box p={4}>
           <Link to='/'>
